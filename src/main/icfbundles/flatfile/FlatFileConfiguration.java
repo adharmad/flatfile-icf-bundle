@@ -1,11 +1,10 @@
-package icfbundles.flatfile;
+package main.flatfile.icfbundles;
 
 import org.identityconnectors.framework.common.exceptions.ConfigurationException;
 import org.identityconnectors.framework.spi.AbstractConfiguration;
 import org.identityconnectors.framework.spi.ConfigurationProperty;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by adharmad on 11/22/2016.

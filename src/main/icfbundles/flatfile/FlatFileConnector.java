@@ -1,4 +1,4 @@
-package icfbundles.flatfile;
+package main.flatfile.icfbundles;
 
 import org.identityconnectors.framework.api.operations.GetApiOp;
 import org.identityconnectors.framework.common.objects.*;
