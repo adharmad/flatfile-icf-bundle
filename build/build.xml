@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="flatfile" default="all" basedir="../">
+
+	<property name="bundle.name" value="icfbundles.flatfile" />
+	<property name="bundle.version" value="1.0" />
+	<property name="ICF.version" value="1.0" />
+	<property name="src.dir" location="../src/main" />
+	<property name="bin.dir" location="./bin" />
+	<property name="dist.dir" location="./dist" />
+	<property name="lib.dir" location="../lib" />
+
+	<path id="class.path">
+		<pathelement path="${bin.dir}" />
+		<fileset dir="${lib.dir}">
+			<include name="*jar" />
+		</fileset>
+	</path>
+
+	<target name="clean" description="Deletes the build and dist dirs">
+		<delete dir="${bin.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<target name="build" description="Compiles the Source files">
+		<mkdir dir="${bin.dir}" />
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" debug="true">
+			<classpath refid="class.path" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="assemble" description="Packages the Connector bundle">
+		<!-- Create the bundle jar at dist location  -->
+		<mkdir dir="${dist.dir}" />
+		<jar destfile="${dist.dir}/${bundle.name}-${bundle.version}.jar" update="true">
+			<fileset dir="${bin.dir}" />
+			<manifest>
+				<attribute name="ConnectorBundle-FrameworkVersion" value="${ICF.version}" />
+				<attribute name="ConnectorBundle-Name" value="${bundle.name}" />
+				<attribute name="ConnectorBundle-Version" value="${bundle.version}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="all" depends="clean, build, assemble" />
+
+</project>
