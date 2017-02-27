@@ -4,10 +4,10 @@
 	<property name="bundle.name" value="icfbundles.flatfile" />
 	<property name="bundle.version" value="1.0" />
 	<property name="ICF.version" value="1.0" />
-	<property name="src.dir" location="../src/main" />
+	<property name="src.dir" location="./src/main" />
 	<property name="bin.dir" location="./bin" />
 	<property name="dist.dir" location="./dist" />
-	<property name="lib.dir" location="../lib" />
+	<property name="lib.dir" location="./lib" />
 
 	<path id="class.path">
 		<pathelement path="${bin.dir}" />

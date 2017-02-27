@@ -25,21 +25,14 @@ public class FlatFileTest {
 	public static void main(String args[]) {
 		ConnectorFacade ffConnectorFacade;
 
-	    final String dirLocation = "C:/Users/adharmad/Dropbox/workspace/noop/dist/";
-	    final String bundleName = "icfbundles.flatfile";
-	    final String bundleVersion = "1.0";
-	    StringBuilder jarNameBuilder = new StringBuilder();
-	    jarNameBuilder.append(dirLocation);
-	    jarNameBuilder.append(bundleName);
-	    jarNameBuilder.append("-");
-	    jarNameBuilder.append(bundleVersion);
-	    jarNameBuilder.append(".jar");
-	    final String jarName = jarNameBuilder.toString();
-	    final String connectorClassName = "icfbundles.flatfile.FlatFileConnector";
-	    File dir = new File(jarName);
+		String bundleName = "icfbundles.flatfile";
+		String bundleVersion = "1.0";
+
+	    String connectorClassName = "icfbundles.flatfile.FlatFileConnector";
+	    File connectorJarFile = new File("C:/Users/adharmad/Dropbox/dev/github/flatfile-icf-bundle/dist/icfbundles.flatfile-1.0.jar");
 	    URL bundleURL = null;
 	    try {
-            bundleURL = dir.toURI().toURL();
+            bundleURL = connectorJarFile.toURI().toURL();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -52,10 +45,10 @@ public class FlatFileTest {
 		System.out.println("Connector Info Manager: " + cInfoManager);
 
 		// Search if connector is present
-		ConnectorKey noopConnectorKey = new ConnectorKey(bundleName, bundleVersion, connectorClassName);
-		System.out.println("Connector Key being searched: " + noopConnectorKey);
+		ConnectorKey ffConnectorKey = new ConnectorKey(bundleName, bundleVersion, connectorClassName);
+		System.out.println("Connector Key being searched: " + ffConnectorKey);
 		
-		ConnectorInfo cInfo = cInfoManager.findConnectorInfo(noopConnectorKey);
+		ConnectorInfo cInfo = cInfoManager.findConnectorInfo(ffConnectorKey);
 		System.out.println("Connector Info received: " + cInfo);
 
 		// From the ConnectorInfo object, create the default APIConfiguration.

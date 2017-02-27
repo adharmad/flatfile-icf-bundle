@@ -1,4 +1,4 @@
-package main.flatfile.icfbundles;
+package icfbundles.flatfile;
 
 import org.identityconnectors.framework.common.exceptions.ConfigurationException;
 import org.identityconnectors.framework.spi.AbstractConfiguration;
