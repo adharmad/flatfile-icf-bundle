@@ -70,3 +70,4 @@ jrebel.lic
 .history
 
 dist/*
+out/*

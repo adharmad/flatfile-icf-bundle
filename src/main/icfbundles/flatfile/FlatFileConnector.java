@@ -32,7 +32,7 @@ public class FlatFileConnector implements SchemaOp,  CreateOp, DeleteOp,
 
     @Override
     public Configuration getConfiguration() {
-        return null;
+        return flatFileConfig;
     }
 
     @Override
